@@ -35,7 +35,7 @@ export const createProduct = async (
   try {
     const product = await Product.create(req.body);
 
-    res.json(product);
+    res.status(201).json(product);
   } catch (error: unknown) {
     if (error instanceof mongoose.Error.ValidationError) {
       next(new BadRequestError('Ошибка валидации данных при создании товара'));
